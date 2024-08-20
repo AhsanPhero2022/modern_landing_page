@@ -1,10 +1,10 @@
 # Modern Landing Page
 
-![Brainwave Banner](https://drive.google.com/file/d/1HmmGQItB8Xsr1AD2K1CvfclPSo7b-spH/view)
+![Brainwave Banner](https://lh3.googleusercontent.com/d/1fZnA4cZgF84TdMlUL6OENaRbJxSBixY1)
 
 Brainwave is a modern UI/UX website developed using React.js and Tailwind CSS. The project exemplifies cutting-edge UI/UX principles, with a sleek design, seamless animations, and an overall user experience that sets a high standard. This project can serve as both a reference and an inspiration for future modern applications or websites.
 
-[View Live Website](https://your-live-website-link.com)
+[View Live Website](https://moder-landing-page-ai.netlify.app/)
 
 ## 🧠 Introduction
 
