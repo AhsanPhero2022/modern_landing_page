@@ -8,9 +8,13 @@ import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
+import { Link } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
+import { toast } from "react-toastify";
 
 const Hero = () => {
   const parallaxRef = useRef(null);
+  const { user } = useUser();
 
   return (
     <Section
@@ -39,9 +43,15 @@ const Hero = () => {
             Unleash the power of AI within Brainwave. Upgrade your productivity
             with Brainwave, the open AI chat app.
           </p>
-          <Button href="/pricing" white>
-            Get started
-          </Button>
+          {user ? (
+            <Button onClick={() => toast("You already Signed")} white>
+              Get started
+            </Button>
+          ) : (
+            <Link to="/signUp">
+              <Button className="hidden lg:flex">Get Start</Button>
+            </Link>
+          )}
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
           <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">

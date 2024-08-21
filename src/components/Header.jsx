@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 import { brainwave } from "../assets";
@@ -7,10 +7,25 @@ import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
 import { useState } from "react";
+import { useUser } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/clerk-react";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
+  const { user } = useUser();
+
+  const { signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      toast.success("You have successfully signed out!");
+    } catch (error) {
+      toast.error("Error signing out. Please try again.");
+    }
+  };
 
   const toggleNavigation = () => {
     if (openNavigation) {
@@ -67,15 +82,31 @@ const Header = () => {
           <HamburgerMenu />
         </nav>
 
-        <a
-          href="#signup"
-          className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
-        >
-          New account
-        </a>
-        <Button className="hidden lg:flex" href="#login">
-          Sign in
-        </Button>
+        {user ? (
+          <Link
+            to="/dashboard"
+            className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
+          >
+            Dashboard
+          </Link>
+        ) : (
+          <button
+            className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
+            onClick={() => toast("Login to continue, please!")}
+          >
+            Dashboard
+          </button>
+        )}
+
+        {user ? (
+          <Button onClick={handleSignOut} className="hidden lg:flex">
+            Sign Out
+          </Button>
+        ) : (
+          <Link to="/login">
+            <Button className="hidden lg:flex">Sign in</Button>
+          </Link>
+        )}
 
         <Button
           className="ml-auto lg:hidden"
