@@ -24,7 +24,11 @@ const Header = () => {
             <BellIcon className="w-6 h-6" />
           </button>
           <button className="text-n-1 w-12 h-12">
-            {user ? <img src={user.imageUrl} /> : <UserCircleIcon />}
+            {user ? (
+              <img src={user.imageUrl} className="rounded-full" />
+            ) : (
+              <UserCircleIcon />
+            )}
           </button>
         </div>
       </div>
