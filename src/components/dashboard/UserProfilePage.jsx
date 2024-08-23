@@ -1,6 +1,6 @@
 import { UserProfile } from "@clerk/clerk-react";
 
-const UsersPage = () => {
+const UserProfilePage = () => {
   return (
     <>
       <div className="flex justify-center items-center mt-8">
@@ -10,4 +10,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default UserProfilePage;

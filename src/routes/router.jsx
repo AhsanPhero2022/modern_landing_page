@@ -3,10 +3,9 @@ import App from "../App";
 import SignInPage from "../layout/SignInPage";
 import Home from "../mainLayout/Home";
 import SignUpPage from "../layout/SignUpPage";
-import UsersPage from "../components/dashboard/UsersPage";
 import DashboardLayout from "../mainLayout/DashboardLayout";
-import LeaderBoard from "../components/dashboard/LeaderBoard";
 import Dashboard from "./../components/dashboard/Dashboard";
+import UserProfilePage from "../components/dashboard/UserProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +32,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <UsersPage />,
+        element: <UserProfilePage />,
       },
       {
         path: "dashboard",
