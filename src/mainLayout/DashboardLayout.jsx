@@ -1,7 +1,6 @@
 import { Layout, Menu } from "antd";
 
 import { NavLink, Outlet } from "react-router-dom";
-import DashboardNav from "../components/dashboard/DashboardNav";
 
 const { Content, Footer, Sider } = Layout;
 
@@ -13,7 +12,7 @@ const items = [
 
   {
     key: 5,
-    label: <NavLink to="/dashboard/leader-board">Leader Board</NavLink>,
+    label: <NavLink to="/dashboard/dashboard">Dashboard</NavLink>,
   },
   {
     key: 3,
@@ -40,13 +39,14 @@ const items = [
 
 const DashboardLayout = () => {
   return (
-    <Layout className="min-h-screen">
+    <Layout className="min-h-screen ">
       <Sider breakpoint="lg" collapsedWidth="0">
         <div className="w-1/2 mx-auto mt-3 ">
-          <img src="comming" alt="" />
+          <img src="coming" alt="" />
         </div>
         <Menu
           theme="dark"
+          className="px-2  "
           mode="inline"
           defaultSelectedKeys={["4"]}
           items={items}
@@ -59,11 +59,10 @@ const DashboardLayout = () => {
               minHeight: 360,
             }}
           >
-            <DashboardNav />
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
+        <Footer className="text-center bg-n-8 text-n-1">
           Charity website ©{new Date().getFullYear()} Created by Sharif
         </Footer>
       </Layout>

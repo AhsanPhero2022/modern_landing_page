@@ -6,6 +6,7 @@ import SignUpPage from "../layout/SignUpPage";
 import UsersPage from "../components/dashboard/UsersPage";
 import DashboardLayout from "../mainLayout/DashboardLayout";
 import LeaderBoard from "../components/dashboard/LeaderBoard";
+import Dashboard from "./../components/dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -35,8 +36,8 @@ export const router = createBrowserRouter([
         element: <UsersPage />,
       },
       {
-        path: "leader-board",
-        element: <LeaderBoard />,
+        path: "dashboard",
+        element: <Dashboard />,
       },
     ],
   },
