@@ -77,36 +77,34 @@ const Header = () => {
                 {item.title}
               </a>
             ))}
+            <div className="flex flex-col m-auto lg:flex-row gap-5 justify-center items-center ">
+              {user ? (
+                <Link to="/dashboard">
+                  <Button className=" lg:flex">Dashboard</Button>
+                </Link>
+              ) : (
+                <Button
+                  className=" lg:flex"
+                  onClick={() => toast("Login to continue, please!")}
+                >
+                  Dashboard
+                </Button>
+              )}
+
+              {user ? (
+                <Button onClick={handleSignOut} className=" lg:flex">
+                  Sign Out
+                </Button>
+              ) : (
+                <Link to="/login">
+                  <Button className=" lg:flex">Sign in</Button>
+                </Link>
+              )}
+            </div>
           </div>
 
           <HamburgerMenu />
         </nav>
-
-        {user ? (
-          <Link
-            to="/dashboard"
-            className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
-          >
-            Dashboard
-          </Link>
-        ) : (
-          <button
-            className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
-            onClick={() => toast("Login to continue, please!")}
-          >
-            Dashboard
-          </button>
-        )}
-
-        {user ? (
-          <Button onClick={handleSignOut} className="hidden lg:flex">
-            Sign Out
-          </Button>
-        ) : (
-          <Link to="/login">
-            <Button className="hidden lg:flex">Sign in</Button>
-          </Link>
-        )}
 
         <Button
           className="ml-auto lg:hidden"
