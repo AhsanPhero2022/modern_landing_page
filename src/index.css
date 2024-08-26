@@ -86,3 +86,9 @@
 .-rotate-360 {
   @apply rotate-[-360deg];
 }
+
+.glassmorphism-auth {
+  background: rgba(6, 3, 3, 0.711);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}

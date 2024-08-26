@@ -1,5 +1,6 @@
 import { SignUp } from "@clerk/clerk-react";
-
+import { heroBackground } from "../assets";
+import { dark } from "@clerk/themes";
 const SignUpPage = () => {
   const handleSignIn = async () => {
     try {
@@ -10,9 +11,20 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center mt-16 md:mt-24 lg:mt-32 xl:mt-44">
-      <SignUp afterSignIn={handleSignIn} />
-    </div>
+    <main className="relative h-screen w-full">
+      <div className="absolute size-full">
+        <img src={heroBackground} alt="background" className="size-full" />
+      </div>
+
+      <div className="flex justify-center  items-center glassmorphism-auth h-screen w-full">
+        <SignUp
+          afterSignIn={handleSignIn}
+          appearance={{
+            baseTheme: dark,
+          }}
+        />
+      </div>
+    </main>
   );
 };
 
